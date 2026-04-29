@@ -1,0 +1,51 @@
+### Muminkopedia API - Testy
+
+@baseUrl = http://localhost:3001
+
+### 1. Główna strona API
+GET {{baseUrl}}/
+
+### 2. Pobierz wszystkie postacie
+GET {{baseUrl}}/api/characters
+
+### 3. Dodaj nową postać - Muminek
+POST {{baseUrl}}/api/characters
+Content-Type: application/json
+
+{
+  "name": "Muminek",
+  "species": "Muminek",
+  "description": "Główny bohater Doliny Muminków",
+  "isHibernating": false
+}
+
+### 4. Dodaj Paszczaka
+POST {{baseUrl}}/api/characters
+Content-Type: application/json
+
+{
+  "name": "Paszczak",
+  "species": "Paszczak",
+  "description": "Najlepszy przyjaciel Muminka",
+  "isHibernating": true
+}
+
+### 5. Dodaj Małą Mi
+POST {{baseUrl}}/api/characters
+Content-Type: application/json
+
+{
+  "name": "Mała Mi",
+  "species": "Mi",
+  "description": "Siostra Muminka",
+  "isHibernating": false
+}
+
+### 6. Pobierz wszystkie postacie po dodaniu
+GET {{baseUrl}}/api/characters
+
+### 7. Pobierz konkretną postać (zmień ID po dodaniu)
+GET {{baseUrl}}/api/characters/PASTE_ID_HERE
+
+### 8. Test Artefaktów
+GET {{baseUrl}}/api/artifacts
