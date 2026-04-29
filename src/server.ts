@@ -1,7 +1,7 @@
 import app from './app';
 import { connectDB } from './db';
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;   // <-- zmienione na 3001
 
 const startServer = async () => {
     try {
@@ -9,10 +9,11 @@ const startServer = async () => {
 
         app.listen(PORT, () => {
             console.log(`🚀 Serwer Muminkopedia działa na http://localhost:${PORT}`);
-            console.log(`🔗 Testowy endpoint: http://localhost:${PORT}/`);
+            console.log(`🔗 Główny endpoint: http://localhost:${PORT}/`);
+            console.log(`🔗 Postacie: http://localhost:${PORT}/api/characters`);
         });
     } catch (error) {
-        console.error('❌ Błąd uruchamiania serwera:', error);
+        console.error('❌ Nie udało się uruchomić serwera:', error);
     }
 };
 
