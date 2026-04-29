@@ -38,8 +38,11 @@ export class ArtifactService {
 
     async updateArtifact(id: string, data: Partial<IArtifact>): Promise<IArtifact> {
         const artifact = await this.getArtifactById(id);
+
         const updated = await this.repository.update(id, data);
-        if (!updated) throw new ApiError(500, 'Błąd podczas aktualizacji artefaktu');
+        if (!updated) {
+            throw new ApiError(500, 'Błąd podczas aktualizacji artefaktu');
+        }
         return updated;
     }
 

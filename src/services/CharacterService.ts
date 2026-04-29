@@ -1,4 +1,3 @@
-
 import { CharacterRepository } from '../repositories/CharacterRepository';
 import { ICharacter } from '../models/Character';
 import { ApiError } from '../utils/ApiError';
@@ -28,7 +27,7 @@ export class CharacterService {
             throw new ApiError(400, 'Imię i gatunek są wymagane');
         }
 
-        const existing = await CharacterModel.findOne({ name: data.name.trim() }); // tymczasowo
+        const existing = await CharacterModel.findOne({ name: data.name.trim() });
         if (existing) {
             throw new ApiError(409, `Postać o imieniu "${data.name}" już istnieje`);
         }
