@@ -1,6 +1,7 @@
 ﻿import { CharacterModel, ICharacter } from '../models/Character';
 
 export class CharacterRepository {
+
     async findAll(): Promise<ICharacter[]> {
         return await CharacterModel.find().populate('bestFriend');
     }
@@ -12,6 +13,14 @@ export class CharacterRepository {
     async create(data: Partial<ICharacter>): Promise<ICharacter> {
         const character = new CharacterModel(data);
         return await character.save();
+    }
+
+    async update(id: string, data: Partial<ICharacter>): Promise<ICharacter | null> {
+        return await CharacterModel.findByIdAndUpdate(
+            id,
+            data,
+            { new: true, runValidators: true }
+        ).populate('bestFriend');
     }
 
     async delete(id: string): Promise<ICharacter | null> {
