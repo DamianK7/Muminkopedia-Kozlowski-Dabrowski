@@ -32,6 +32,13 @@ app.get("/", (req, res) => {
     });
 });
 
+app.get("/api/characters", (req, res) => {
+    res.json([
+        { name: "Muminek" },
+        { name: "Mała Mi" }
+    ]);
+});
+
 app.use(errorHandler);
 
 export default app;

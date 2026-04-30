@@ -3,7 +3,7 @@ import { CharacterService } from '../services/CharacterService';
 
 const characterService = new CharacterService();
 
-// Typy parametrów
+
 type ParamsWithId = {
     id: string;
 };
